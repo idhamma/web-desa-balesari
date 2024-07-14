@@ -18,3 +18,12 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/login', function () {
+    return redirect('/admin/login');
+});
+
+Route::get('/register', function () {
+    return redirect('/admin/login');
+});
