@@ -7,8 +7,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -16,7 +14,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
 
 Route::get('/login', function () {
     return redirect('/admin/login');
