@@ -25,5 +25,6 @@ Route::get('/register', function () {
 
 Route::get('/', function () {
     $news = DB::table('news')->get();
-    return view('welcome', ['news' => $news]);
+    $information = DB::table('information')->get();
+    return view('welcome', ['news' => $news], ['information' => $information]);
 });
