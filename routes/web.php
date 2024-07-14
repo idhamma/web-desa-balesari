@@ -22,3 +22,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return redirect('/admin/login');
 });
+
+Route::get('/', function () {
+    $news = DB::table('news')->get();
+    return view('welcome', ['news' => $news]);
+});
