@@ -63,7 +63,7 @@ class NewsCrudController extends CrudController
          * - CRUD::field('price')->type('number');
          */
 
-        CRUD::field('image')->type('upload');
+         CRUD::field('image')->type('upload')->upload(true)->disk('public')->prefix('uploads/images');
     }
 
     /**
