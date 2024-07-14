@@ -32,7 +32,7 @@ class News extends Model
         if (is_file($value)) {
             $filename = md5($value->getClientOriginalName() . time()) . '.' . $value->getClientOriginalExtension();
             Storage::disk($disk)->put($destination_path . '/' . $filename, file_get_contents($value));
-            $this->attributes[$attribute_name] = $destination_path . '/' . $filename;
+            $this->attributes[$attribute_name] = $filename;
         }
     }
 }
