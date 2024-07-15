@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\NewsCrudController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\InformasiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,3 +31,6 @@ Route::get('/', function () {
     $information = DB::table('information')->get();
     return view('welcome', ['news' => $news], ['information' => $information]);
 });
+
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/informasi/{id}', [InformasiController::class, 'show'])->name('informasi.show');

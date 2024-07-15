@@ -195,14 +195,14 @@
                 <!-- Berita -->
                 @foreach($news as $key => $data)
                 <div>
-                <a href="#" class="flex flex-col h-36 items-center rounded-lg shadow md:flex-row md:w-full hover:bg-gray-600 border-gray-700 bg-gray-800 bg-gray-700">
-                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="storage/uploads/images/{{ $data->image }}" alt="">
-                    <div class="flex flex-col justify-between py-2 p-4 leading-normal">
-                        <h5 class="mb-2 w-full h-max text-xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $data->title }}</h5>
-                        <p class="mb-3 w-full text-sm h-max font-normal text-gray-700 dark:text-gray-400">{{ \Illuminate\Support\Str::limit($data->content, 100, '...') }}</p>
-                        <p class="mb-3 w-full text-sm h-max font-normal text-gray-700 dark:text-gray-400">{{ $data->created_at }} </p>
-                    </div>
-                </a>
+                    <a href="{{ route('news.show', $data->id) }}" class="flex flex-col h-36 items-center rounded-lg shadow md:flex-row md:w-full hover:bg-gray-600 border-gray-700 bg-gray-800 bg-gray-700">
+                        <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('storage/uploads/images/' . $data->image) }}" alt="">
+                        <div class="flex flex-col justify-between py-2 p-4 leading-normal">
+                            <h5 class="mb-2 w-full h-max text-xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $data->title }}</h5>
+                            <p class="mb-3 w-full text-sm h-max font-normal text-gray-700 dark:text-gray-400">{{ \Illuminate\Support\Str::limit($data->content, 100, '...') }}</p>
+                            <p class="mb-3 w-full text-sm h-max font-normal text-gray-700 dark:text-gray-400">{{ $data->created_at }} </p>
+                        </div>
+                    </a>
                 </div>
                 @endforeach
                 <!--  -->
@@ -217,15 +217,15 @@
             <hr class="border-t-2 border-gray-900 w-full mx-auto my-4">
 
             <div class="flex flex-col gap-4">
-                @foreach($information as $key => $data)
+            @foreach($information as $key => $data)
                 <div>
-                <a href="#" class="flex flex-col h-max items-center rounded-lg shadow md:flex-row md:w-full hover:bg-gray-600 border-gray-700 bg-gray-800 bg-gray-700">
-                    <div class="flex flex-col justify-between py-2 p-4 leading-normal">
-                        <h5 class="mb-2 w-full h-max text-lg font-bold tracking-tight text-gray-900 dark:text-white">{{ $data->title }}</h5>
-                    </div>
-                </a>
+                    <a href="{{ route('informasi.show', $data->id) }}" class="flex flex-col h-max items-center rounded-lg shadow md:flex-row md:w-full hover:bg-gray-600 border-gray-700 bg-gray-800 bg-gray-700">
+                        <div class="flex flex-col justify-between py-2 p-4 leading-normal">
+                            <h5 class="mb-2 w-full h-max text-lg font-bold tracking-tight text-gray-900 dark:text-white">{{ $data->title }}</h5>
+                        </div>
+                    </a>
                 </div>
-                @endforeach
+            @endforeach
                 <!--  -->
 
                 <!-- Agenda Kegiatan -->
