@@ -228,16 +228,22 @@
             @endforeach
                 <!--  -->
 
-                <!-- Agenda Kegiatan -->
-                <div class="w-full">
-                    <h2 class="text-2xl mt-10 font-bold text-gray-900">Agenda Kegiatan</h2>
-                    <hr class="border-t-2 border-gray-900 w-full mx-auto my-4">        
-                    
-                    <div class="flex flex-col gap-4">
-
-                    </div>
+            <!-- Agenda Kegiatan -->
+            <div class="w-full">
+                <h2 class="text-2xl mt-10 font-bold text-gray-900">Agenda Kegiatan</h2>
+                <hr class="border-t-2 border-gray-900 w-full mx-auto my-4">        
+                
+                <div class="flex flex-col gap-4">
+                    @foreach($agenda as $item)
+                        <div class="p-4 bg-gray-800 rounded-lg shadow">
+                            <h3 class="text-xl font-bold text-white">{{ $item->nama_kegiatan }}</h3>
+                            <p class="text-gray-400">{{ $item->lokasi }}</p>
+                            <p class="text-gray-500">{{ \Carbon\Carbon::parse($item->date)->format('d M Y') }}</p>
+                        </div>
+                    @endforeach
                 </div>
-                <!--  -->
+            </div>
+            <!--  -->
         </div>
         
     </div>

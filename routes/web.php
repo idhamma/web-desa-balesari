@@ -29,7 +29,8 @@ Route::get('/register', function () {
 Route::get('/', function () {
     $news = DB::table('news')->get();
     $information = DB::table('information')->get();
-    return view('welcome', ['news' => $news], ['information' => $information]);
+    $agenda = DB::table('agenda')->get();
+    return view('welcome', compact('news', 'information', 'agenda'));
 });
 
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
